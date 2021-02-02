@@ -1,0 +1,28 @@
+<h1> Burgers!</h1>
+
+<h2>Burgers not devoured</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    <li>
+        <p>{{this.id}} {{this.burger_name}} </p>
+        <button data-id='{{this.id}}' data-devoured='{{this.devoured}}' class='devour'> Devour Meal <i class="fas fa-utensils"></i></button>
+    </li>
+    {{/unless}}
+    {{/each}}
+</ul>
+
+<h2> Devoured burgers</h2>
+
+<ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/if}}
+    {{/each}}
+</ul>
+
+<h2> Add a burger</h2>
+
+<form id="c"
