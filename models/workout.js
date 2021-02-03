@@ -3,8 +3,6 @@ const orm = require('../config/orm.js')
 
 // Create code that will call the ORM functions
 
-
-
 const workout = {
   all(cb) {
     orm.all('workouts', (res) => cb(res));
@@ -18,5 +16,4 @@ const workout = {
   }
 };
 
-module.exports = workout
-;
+module.exports = workout;
