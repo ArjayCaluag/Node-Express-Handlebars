@@ -5,10 +5,7 @@
 <ul>
     {{#each burgers}}
     {{#unless devoured}}
-    <li>
-        <p>{{this.id}} {{this.burger_name}} </p>
-        <button data-id='{{this.id}}' data-devoured='{{this.devoured}}' class='devour'> Devour Meal <i class="fas fa-utensils"></i></button>
-    </li>
+    {{> burgers/burger-block devoured=true}}
     {{/unless}}
     {{/each}}
 </ul>
@@ -31,12 +28,5 @@
     <label for="ca">burger Name:</label>
     <input type="text" id="ca" name="name">
   </div>
-
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" id="devoured" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0" id="not-devoured"> Not Devoured!
-  </div>
-
-  <button type="submit">Add Burger</button>
+  <button type="submit" name = "devoured" id = "devoured" >Add a Burger</button>
 </form>
