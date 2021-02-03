@@ -3,33 +3,33 @@ const express = require('express');
 
 const router = express.Router();
 
-const burger = require('../models/burger.js');
+const workout = require('../models/workout.js');
 // Create all our routes and set up logic within those routes where required.
 router.get('/', (req, res) => {
-    burger.all((data) => {
+    workout.all((data) => {
       const hbsObject = {
-        burgers: data,
+        workouts: data,
       };
       console.log(hbsObject);
       res.render('index', hbsObject);
     });
   });
   
-  router.post('/api/burgers', (req, res) => {
-    burger.create(['burger_name', 'devoured'], [req.body.burger_name, req.body.devoured], (result) => {
+  router.post('/api/workouts', (req, res) => {
+    workout.create(['workout_name', 'completed'], [req.body.workout_name, req.body.completed], (result) => {
       // Send back the ID of the new quote
       res.json({ id: result.insertId });
     });
   });
   
-  router.put('/api/burgers/:id', (req, res) => {
+  router.put('/api/workouts/:id', (req, res) => {
     const condition = `id = ${req.params.id}`;
   
     console.log('condition', condition);
   
-    burger.update(
+    workout.update(
       {
-        devoured: req.body.devoured,
+        completed: req.body.completed,
       },
       condition,
       (result) => {

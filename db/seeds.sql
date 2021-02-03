@@ -1,8 +1,8 @@
-USE burgers_db;
+USE workouts_db;
 
-INSERT INTO burgers
-    (burger_name, devoured)
+INSERT INTO workouts
+    (workout_name, completed)
 VALUES
-    ('Hamburger', false ),
-    ('Cheeseburger', true),
-    ('Bacon Cheese Burger', true );
+    ('Bench press', false ),
+    ('Push Ups', false),
+    ('Situps', false );

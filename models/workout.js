@@ -5,17 +5,18 @@ const orm = require('../config/orm.js')
 
 
 
-const burger = {
+const workout = {
   all(cb) {
-    orm.all('burgers', (res) => cb(res));
+    orm.all('workouts', (res) => cb(res));
   },
   // The variables cols and vals are arrays.
   create(cols, vals, cb) {
-    orm.create('burgers', cols, vals, (res) => cb(res));
+    orm.create('workouts', cols, vals, (res) => cb(res));
   },
   update(objColVals, condition, cb) {
-    orm.update('burgers', objColVals, condition, (res) => cb(res));
+    orm.update('workouts', objColVals, condition, (res) => cb(res));
   }
 };
 
-module.exports = burger;
+module.exports = workout
+;

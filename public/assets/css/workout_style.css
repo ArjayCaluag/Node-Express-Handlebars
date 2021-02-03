@@ -1,0 +1,29 @@
+ul{
+    width: 208px;
+    float: left;
+    position: relative;
+}
+
+.wrap {
+    display: table; 
+    margin:  0 auto;
+}
+
+html {
+    background: lightgray;
+}
+h1{
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.wrap2{
+    display:table;
+   margin: 0 auto;
+}

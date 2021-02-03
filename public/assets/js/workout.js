@@ -6,21 +6,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // UPDATE
-    const changeBurgerBtns = document.querySelectorAll('.change-burger');
+    const changeWorkoutBtns = document.querySelectorAll('.change-workout');
   
     // Set up the event listener for the create button
-    if (changeBurgerBtns) {
-      changeBurgerBtns.forEach((button) => {
+    if (changeWorkoutBtns) {
+      changeWorkoutBtns.forEach((button) => {
         button.addEventListener('click', (e) => {
           // Grabs the id of the element that goes by the name, "id"
           const id = e.target.getAttribute('data-id');
-          const newBurger = e.target.getAttribute('data-newburger');
+          const newWorkout = e.target.getAttribute('data-newworkout');
   
-          const newBurgerState = {
-            devoured: newBurger,
+          const newWorkoutState = {
+            completed: newWorkout,
           };
   
-          fetch(`/api/burgers/${id}`, {
+          fetch(`/api/workouts/${id}`, {
             method: 'PUT',
             headers: {
               Accept: 'application/json',
@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             },
   
             // make sure to serialize the JSON body
-            body: JSON.stringify(newBurgerState),
+            body: JSON.stringify(newWorkoutState),
           }).then((response) => {
             // Check that the response is all good
             // Reload the page so the user can see the new quote
             if (response.ok) {
-              console.log(`changed sleep to: ${newBurger}`);
+              console.log(`changed sleep to: ${newWorkout}`);
               location.reload('/');
             } else {
               alert('something went wrong!');
@@ -44,20 +44,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   
     // CREATE
-    const createCatBtn = document.getElementById('create-form');
+    const createWorkoutBtn = document.getElementById('create-form');
   
-    if (createCatBtn) {
-      createCatBtn.addEventListener('submit', (e) => {
+    if (createWorkoutBtn) {
+      createWorkoutBtn.addEventListener('submit', (e) => {
         e.preventDefault();
   
         // Grabs the value of the textarea that goes by the name, "quote"
-        const newBurger = {
-          burger_name: document.getElementById('ca').value.trim(),
+        const newWorkout = {
+          workout_name: document.getElementById('ca').value.trim(),
           // devoured: document.getElementById('not-devoured').checked,
         };
   
         // Send POST request to create a new quote
-        fetch('/api/burgers', {
+        fetch('/api/workouts', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
           },
   
           // make sure to serialize the JSON body
-          body: JSON.stringify(newBurger),
+          body: JSON.stringify(newWorkout),
         }).then(() => {
           // Empty the form
           document.getElementById('ca').value = '';
   
           // Reload the page so the user can see the new quote
-          console.log('Created a new burger!');
+          console.log('Created a new workout!');
           location.reload();
         });
       });

@@ -1,32 +1,33 @@
-<h1> Burgers!</h1>
+<img src="https://blog.zoom.us/wp-content/uploads/2020/05/workout-main-792x418.png">
+<div class = 'wrap'>
+<h1> Workout Tracker</h1>
 
-<h2>Burgers not devoured</h2>
 
 <ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-block devoured=true}}
+    {{#each workouts}}
+    {{#unless completed}}
+    {{> workouts/workout-block completed=true}}
     {{/unless}}
     {{/each}}
 </ul>
-
-<h2> Devoured burgers</h2>
-
 <ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    {{> burgers/burger-block devoured=false}}
+    {{#each workouts}}
+    {{#if completed}}
+    {{> workouts/workout-block completed=false}}
     {{/if}}
     {{/each}}
 </ul>
+</div>
 
-<h2> Add a burger</h2>
+<div class = "wrap2">
+<h2> Add A Workout</h2>
 
 <form id="create-form">
 
   <div class="form-group">
-    <label for="ca">burger Name:</label>
+    <label for="ca"></label>
     <input type="text" id="ca" name="name">
   </div>
-  <button type="submit" name = "devoured" id = "devoured" >Add a Burger</button>
+  <button type="submit" name = "completed" id = "completed" >Add a Workout!</button>
 </form>
+</div>

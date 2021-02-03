@@ -19,12 +19,12 @@ const printQuestionMarks = (num) => {
       let value = ob[key];
       // Check to skip hidden properties
       if (Object.hasOwnProperty.call(ob, key)) {
-        // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
+        // If string with spaces, add quotations (Bench Press => 'Bench Press')
         if (typeof value === 'string' && value.indexOf(' ') >= 0) {
           value = `'${value}'`;
         }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
+        // e.g. {workout_name: 'Bench press'} => ["workout_namename='Lana Del Grey'"]
+        // e.g. {completed: true} => ["completed=true"]
         arr.push(`${key}=${value}`);
       }
     }
@@ -64,7 +64,7 @@ const printQuestionMarks = (num) => {
         cb(result);
       });
     },
-    // An example of objColVals would be {name: panther, sleepy: true}
+    // An example of objColVals would be {workout_name: Bench press, completed: true}
     update(table, objColVals, condition, cb) {
       let queryString = `UPDATE ${table}`;
   

@@ -1,10 +1,10 @@
-DROP DATABASE IF EXISTS burgers_db;
-CREATE DATABASE burgers_db;
+DROP DATABASE IF EXISTS workouts_db;
+CREATE DATABASE workouts_db;
 
-USE burgers_db;
+USE workouts_db;
 
-CREATE TABLE burgers (
+CREATE TABLE workouts (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    burger_name varchar(255),
-    devoured BOOLEAN
+    workout_name varchar(255),
+    completed BOOLEAN
 );
